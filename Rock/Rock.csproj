@@ -697,7 +697,9 @@
     <Compile Include="AI\Classes\Moderations\ModerationsRequest.cs" />
     <Compile Include="AI\Classes\Moderations\ModerationsResponseCategories.cs" />
     <Compile Include="AI\Classes\Moderations\ModerationsResponse.cs" />
-    <Compile Include="AI\Provider\AIProviderComponent.cs" />
+    <Compile Include="AI\Provider\AIProviderComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="AI\Provider\AIProviderContainer.cs" />
     <Compile Include="AI\Utilities\AIHelpers.cs" />
     <Compile Include="Attribute\AccountFieldAttribute.cs" />
@@ -1339,7 +1341,9 @@
     <Compile Include="Core\InteractionInfo.cs" />
     <Compile Include="Configuration\XmlHelper.cs" />
     <Compile Include="Constants\RegexPatterns.cs" />
-    <Compile Include="Core\NotificationMessageTypeComponent.cs" />
+    <Compile Include="Core\NotificationMessageTypeComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Core\NotificationMessageTypeContainer.cs" />
     <Compile Include="Core\NotificationMessageTypes\ConnectionRequestMention.cs" />
     <Compile Include="Core\NotificationMessageTypes\NoteMention.cs" />
@@ -1371,9 +1375,13 @@
     <Compile Include="Event\InteractiveExperiences\ExtensionMethods.cs" />
     <Compile Include="Event\InteractiveExperiences\RecordActionResponseStatus.cs" />
     <Compile Include="Event\InteractiveExperiences\ValidOccurrencesResult.cs" />
-    <Compile Include="Event\InteractiveExperiences\VisualizerTypeComponent.cs" />
+    <Compile Include="Event\InteractiveExperiences\VisualizerTypeComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Event\InteractiveExperiences\VisualizerTypeComponents\BarChart.cs" />
-    <Compile Include="Event\InteractiveExperiences\VisualizerTypeComponents\WordCloud.cs" />
+    <Compile Include="Event\InteractiveExperiences\VisualizerTypeComponents\WordCloud.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Event\InteractiveExperiences\VisualizerTypeContainer.cs" />
     <Compile Include="Field\IEntityContextFieldType.cs" />
     <Compile Include="Field\IEntityReferenceFieldType.cs" />
@@ -1549,7 +1557,9 @@
     <Compile Include="Lms\VideoWatchComponent.cs" />
     <Compile Include="Lms\FileUploadComponent.cs" />
     <Compile Include="Lms\AcknowledgmentComponent.cs" />
-    <Compile Include="Lms\LearningActivityComponent.cs" />
+    <Compile Include="Lms\LearningActivityComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Lms\LearningActivityContainer.cs" />
     <Compile Include="Logging\DynamicConfigurationProvider.cs" />
     <Compile Include="Logging\RockJobLogger.cs" />
@@ -2511,7 +2521,9 @@
     <Compile Include="Tv\Classes\ApplicationSettings.cs" />
     <Compile Include="Tv\TvHelper.cs" />
     <Compile Include="Cms\ContentCollection\IndexDocuments\ContentChannelItemDocument.cs" />
-    <Compile Include="UniversalSearch\IndexComponent.cs" />
+    <Compile Include="UniversalSearch\IndexComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UniversalSearch\IndexContainer.cs" />
     <Compile Include="UniversalSearch\IndexModels\EventItemIndex.cs" />
     <Compile Include="Cms\ContentCollection\IContentCollectionIndexer.cs" />
@@ -3032,10 +3044,16 @@
     <Compile Include="Chart\ChartJs\ChartJsTimeSeriesDataFactory.cs" />
     <Compile Include="Chart\FlotChartDataSet.cs" />
     <Compile Include="Chart\TimeSeriesChartDataPoint.cs" />
-    <Compile Include="Communication\SmsActions\SmsActionComponent.cs" />
+    <Compile Include="Communication\SmsActions\SmsActionComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Communication\SmsActions\SmsActionContainer.cs" />
-    <Compile Include="Communication\SmsActions\SmsActionGive.cs" />
-    <Compile Include="Communication\SmsActions\SmsActionLaunchWorkflow.cs" />
+    <Compile Include="Communication\SmsActions\SmsActionGive.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Communication\SmsActions\SmsActionLaunchWorkflow.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Communication\SmsActions\SmsActionReply.cs" />
     <Compile Include="Communication\SmsActions\SmsActionConversations.cs" />
     <Compile Include="Communication\SmsActions\SmsActionOutcome.cs" />
@@ -4096,9 +4114,13 @@
     <Compile Include="Reporting\DataSelect\PrayerRequest\CategorySelect.cs" />
     <Compile Include="Reporting\DataSelect\PrayerRequest\PersonLinkSelect.cs" />
     <Compile Include="Reporting\DataTransform\Person\FamilyMembersTransform.cs" />
-    <Compile Include="Reporting\DataTransform\Person\FatherTransform.cs" />
+    <Compile Include="Reporting\DataTransform\Person\FatherTransform.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reporting\DataTransform\Person\GrandchildTransform.cs" />
-    <Compile Include="Reporting\DataTransform\Person\GrandParentTransform.cs" />
+    <Compile Include="Reporting\DataTransform\Person\GrandParentTransform.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reporting\DataTransform\Person\MotherTransform.cs" />
     <Compile Include="Reporting\DataTransform\Person\SpouseTransform.cs" />
     <Compile Include="Reporting\IRecipientDataSelect.cs" />
@@ -4108,7 +4130,9 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Storage\AssetStorage\AmazonS3Component.cs" />
     <Compile Include="Storage\AssetStorage\Asset.cs" />
-    <Compile Include="Storage\AssetStorage\AssetStorageComponent.cs" />
+    <Compile Include="Storage\AssetStorage\AssetStorageComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Storage\AssetStorage\AssetStorageContainer.cs" />
     <Compile Include="Storage\AssetStorage\FileSystemComponent.cs" />
     <Compile Include="SystemGuid\Block.cs" />
@@ -4318,7 +4342,9 @@
     <Compile Include="Reporting\DataSelect\Person\RelatedPeopleSelect.cs" />
     <Compile Include="Reporting\DataSelect\Person\SpouseNameSelect.cs" />
     <Compile Include="Reporting\DataSelect\Person\TotalGivingAmountSelect.cs" />
-    <Compile Include="Reporting\DataTransformComponent.cs" />
+    <Compile Include="Reporting\DataTransformComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reporting\DataTransformContainer.cs" />
     <Compile Include="Reporting\DataTransform\Person\ChildrenTransform.cs" />
     <Compile Include="Reporting\DataTransform\Person\ParentTransform.cs" />
@@ -4338,7 +4364,9 @@
     <Compile Include="Transactions\SaveCommunicationTransaction.cs" />
     <Compile Include="UniversalSearch\FormattedSearchResult.cs" />
     <Compile Include="UniversalSearch\IndexComponents\ElasticSearch.cs" />
-    <Compile Include="UniversalSearch\IndexComponents\Lucene.cs" />
+    <Compile Include="UniversalSearch\IndexComponents\Lucene.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UniversalSearch\IndexModels\Attributes\RockIndexField.cs" />
     <Compile Include="UniversalSearch\IndexModels\BusinessIndex.cs" />
     <Compile Include="UniversalSearch\IndexModels\PersonIndex.cs" />
@@ -4483,7 +4511,9 @@
     <Compile Include="Security\Authentication\Google.cs" />
     <Compile Include="Security\Authentication\PINAuthentication.cs" />
     <Compile Include="Security\Authorization.cs" />
-    <Compile Include="Security\BackgroundCheckComponent.cs" />
+    <Compile Include="Security\BackgroundCheckComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Security\BackgroundCheckContainer.cs" />
     <Compile Include="Security\BackgroundCheck\ProtectMyMinistry.cs" />
     <Compile Include="Security\DigitalSignatureComponent.cs" />
