@@ -1,0 +1,69 @@
+<template>
+    <BaseAsyncPicker v-model="internalValue"
+                     v-bind="standardProps"
+                     :items="actualItems" />
+</template>
+
+<script setup lang="ts">
+import { ref, computed, PropType, watch } from "vue";
+import { ListItemBag } from "@Obsidian/ViewModels/Utility/listItemBag";
+import { useHttp } from "@Obsidian/Utility/http";
+import { useVModelPassthrough, useStandardAsyncPickerProps,standardAsyncPickerProps } from "@Obsidian/Utility/component";
+import BaseAsyncPicker from "./baseAsyncPicker.obs";
+
+// API Set Up
+interface IGroup {
+    guid: string;
+    name: string;
+    isActive: boolean;
+}
+
+// Declare Props and Emits for the BaseAsyncPicker
+const props = defineProps({
+    modelValue: {
+        type: Object as PropType<ListItemBag | ListItemBag[] | null>,
+        required: false
+    },
+    includeInactive: {
+        type: Boolean,
+        default: false
+    },
+    ...standardAsyncPickerProps
+});
+
+const emit = defineEmits<{
+    (e: "update:modelValue", value: ListItemBag | ListItemBag[] | null): void;
+}>();
+
+const internalValue = useVModelPassthrough(props, "modelValue", emit);
+const standardProps = useStandardAsyncPickerProps(props);
+const http = useHttp();
+const loadedItems = ref<ListItemBag[] | null>(null);
+
+// Change loaded items on prop select
+watch(() => props.includeInactive, () => {
+    loadedItems.value = null;
+});
+
+// Load items from the API
+const loadGroups = async (): Promise<ListItemBag[]> => {
+    const response = await http.get<IGroup[]>(`/api/v2/controls/GetGroups?includeInactive=${props.includeInactive}`);
+    if (response.isSuccess && response.data) {
+        const result = response.data.map(group => ({
+            value: group.guid,
+            text: group.name,
+            category: group.isActive ? "Active" : "Inactive"
+        }));
+        loadedItems.value = result;
+        return result;
+    } else {
+        console.error(response.errorMessage ?? "Failed to load groups.");
+        loadedItems.value = [];
+        return [];
+    }
+};
+
+const actualItems = computed((): ListItemBag[] | (() => Promise<ListItemBag[]>) => {
+    return loadedItems.value ?? loadGroups;
+});
+</script>
