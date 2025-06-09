@@ -1,0 +1,46 @@
+<template>
+    <GalleryAndResult :value="value"
+                      :importCode="importCode"
+                      :exampleCode="exampleCode"
+                      enableReflection>
+
+        <GroupDropdownPicker
+            label="Select a Group"
+            v-model="value"
+            :includeInactive="includeInactive"
+            :displayStyle="displayStyle"
+            :enhanceForLongLists="enhanceForLongLists"
+            :showBlankItem="showBlankItem" />
+
+        <template #settings>
+            <div class="row">
+                <div class="col-md-4">
+                    <CheckBox label="Include Inactive" v-model="includeInactive" />
+                </div>
+                <div class="col-md-4">
+                    <CheckBox label="Enhance for Long Lists" v-model="enhanceForLongLists" />
+                </div>
+                <div class="col-md-4">
+                    <CheckBox label="Show Blank Item" v-model="showBlankItem" />
+                </div>
+            </div>
+        </template>
+    </GalleryAndResult>
+</template>
+
+<script setup lang="ts">
+import { ref } from "vue";
+import GalleryAndResult from "./common/galleryAndResult.partial.obs";
+import GroupDropdownPicker from "@Obsidian/Controls/groupDropdownPicker.obs";
+import CheckBox from "@Obsidian/Controls/checkBox.obs";
+import { getSfcControlImportPath } from "./common/utils.partial";
+import { PickerDisplayStyle } from "@Obsidian/Enums/Controls/pickerDisplayStyle";
+
+const value = ref(null);
+const includeInactive = ref(false);
+const showBlankItem = ref(true);
+const enhanceForLongLists = ref(false);
+const displayStyle = ref(PickerDisplayStyle.Condensed);
+const importCode = getSfcControlImportPath("groupDropdownPicker");
+const exampleCode = `<GroupDropdownPicker label="Select a Group" v-model="value" />`;
+</script>
