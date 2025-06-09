@@ -24,6 +24,13 @@ Rock released under the [Rock Community License](https://www.rockrms.com/license
 
 A community of developers led by the [Spark Development Network](https://www.sparkdevnetwork.com/).
 
+## Changes/Updates
+
+* Added a list block for small groups
+* Added a detail block for small groups
+* Added an API Endpoint to fetch all groups
+* Added a dropdown control to the Obsidian gallery that uses the API Endpoint
+
 ## Installer Note
 
 Normally the [Rock installer](https://www.rockrms.com/Download) generates a unique `PasswordKey`
