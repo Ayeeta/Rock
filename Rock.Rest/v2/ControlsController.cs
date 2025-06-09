@@ -10068,6 +10068,7 @@ namespace Rock.Rest.v2
         /// Gets the group information.
         /// </summary>
         /// <param name="includeInactive"> Includes inactive status groups .</param>
+        /// <param name="groupTypeId"> Filter results based on a groupTypeId .</param>
         /// <returns>All the data for groups</returns>
 
         [HttpGet]
