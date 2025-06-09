@@ -10062,40 +10062,28 @@ namespace Rock.Rest.v2
 
         #endregion
 
-        #region Groups
+        #region Groups      
 
-        [HttpGet]
-        [Authenticate]
-        [Route("GetGroupTypes")]
-        public IHttpActionResult GetGroupTypes()
-        {
-            using (var rockContext = new RockContext())
-            {
-                var groupTypes = new GroupTypeService(rockContext)
-                    .Queryable()
-                    .Select(gt => new
-                    {
-                        Id = gt.Id,                        
-                        Name = gt.Name
-                    })
-                    .OrderBy(gt => gt.Name)
-                    .ToList();
-
-                return Ok(groupTypes);
-            }
-        }
+        /// <summary>
+        /// Gets the group information.
+        /// </summary>
+        /// <param name="includeInactive"> Includes inactive status groups .</param>
+        /// <returns>All the data for groups</returns>
 
         [HttpGet]
         [Authenticate]
         [Route("GetGroups")]
-        public IHttpActionResult GetGroups(bool activeStatus = false, int? groupTypeId = null)
+        public IHttpActionResult GetGroups(bool includeInactive = false, int? groupTypeId = null)
         {
             using (var rockContext = new RockContext())
             {
                 var groupService = new GroupService(rockContext);
                 var query = groupService.Queryable();
 
-                query = query.Where(g => g.IsActive == !activeStatus);
+                if (!includeInactive)
+                {
+                    query = query.Where(g => g.IsActive);
+                }
 
                 if (groupTypeId.HasValue)
                 {
@@ -10111,47 +10099,15 @@ namespace Rock.Rest.v2
                         IsActive = g.IsActive,
                         GroupTypeId = g.GroupTypeId,
                         GroupTypeName = g.GroupType.Name,
-                        GroupCapacity = g.GroupCapacity,
-                        DateCreated = g.CreatedDateTime,
-                        DateModified = g.ModifiedDateTime
+                        GroupCapacity = g.GroupCapacity
+                       
                     })
                     .ToList();
 
                 return Ok(groups);
             }
         }
-        //public IHttpActionResult GetGroups(bool includeInactive = false)
-        //{
-        //    using (var rockContext = new RockContext())
-        //    {
-        //        var groupService = new GroupService(rockContext);
-
-        //        // start with all groups
-        //        var query = groupService.Queryable();
-
-        //        // filter only active ones if includeInactive is false
-        //        if (!includeInactive)
-        //        {
-        //            query = query.Where(g => g.IsActive);
-        //        }
-
-        //        var groups = query
-        //            .Select(g => new
-        //            {
-        //                Guid = g.Guid,
-        //                Name = g.Name,
-        //                Description = g.Description,
-        //                IsActive = g.IsActive,
-        //                GroupTypeName = g.GroupType.Name,
-        //                GroupCapacity = g.GroupCapacity,
-        //                DateCreated = g.CreatedDateTime,
-        //                DateModified = g.ModifiedDateTime
-        //            })
-        //            .ToList();
-
-        //        return Ok(groups);
-        //    }
-        //}
+  
 
         #endregion
 
