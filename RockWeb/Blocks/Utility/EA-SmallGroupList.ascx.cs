@@ -126,6 +126,17 @@ namespace RockWeb.Blocks.Utility
             
         }
 
+      
+
+        protected void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            // This event is triggered when the text in the search box changes.
+            // It can be used to filter the grid based on the search criteria.
+            BindGrid();
+        }
+
+      
+
 
         #endregion
 
@@ -149,9 +160,20 @@ namespace RockWeb.Blocks.Utility
                     g.CreatedDateTime
                 });
 
+            if (!string.IsNullOrWhiteSpace(tbSearch.Text))
+            {
+                var keyword = tbSearch.Text.Trim();
+                query = query.Where(g => g.Name.Contains(keyword));
+            }
+
             gSmallGroups.DataSource = query.ToList();
             gSmallGroups.DataBind();
+
+
+            hfGroupNames.Value = string.Join("|", query.Select(g => g.Name));
         }
+
+
 
 
         #endregion
