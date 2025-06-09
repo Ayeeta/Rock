@@ -230,6 +230,7 @@ import MergeFieldPickerGallery from "./ControlGallery/mergeFieldPickerGallery.pa
 import CategorizedValuePickerGallery from "./ControlGallery/categorizedValuePickerGallery.partial.obs";
 import ReminderTypePickerGallery from "./ControlGallery/reminderTypePickerGallery.partial.obs";
 import GroupRolePickerGallery from "./ControlGallery/groupRolePickerGallery.partial.obs";
+import GroupDropdownPickerGallery from "./ControlGallery/groupDropdownPickerGallery.partial.obs";
 import ModalAlertGallery from "./ControlGallery/modalAlertGallery.partial.obs";
 import ContentChannelItemPickerGallery from "./ControlGallery/contentChannelItemPickerGallery.partial.obs";
 import PersonLinkGallery from "./ControlGallery/personLinkGallery.partial.obs";
@@ -447,7 +448,8 @@ const controlGalleryComponents: Record<string, Component> = [
     LearningClassActivityPickerGallery,
     ConnectedListAddButtonGallery,
     ConnectedListButtonGallery,
-    ConnectedListGallery
+    ConnectedListGallery,
+    GroupDropdownPickerGallery
 ]
     // Fix vue 3 SFC putting name in __name.
     .map(a => {
